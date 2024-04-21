@@ -1,0 +1,9 @@
+channels:
+- conda-forge
+dependencies:
+- python=3.11.2
+- pip<=24.0
+- pip:
+  - mlflow==2.8.1
+  - statsforecast==1.7.4
+name: mlflow-env

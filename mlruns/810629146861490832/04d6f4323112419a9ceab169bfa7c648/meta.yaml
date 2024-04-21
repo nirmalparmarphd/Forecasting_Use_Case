@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/nirmal/Documents/np_dsci_codes/Forecasting_Use_Case/mlruns/810629146861490832/04d6f4323112419a9ceab169bfa7c648/artifacts
+end_time: 1713721473560
+entry_point_name: ''
+experiment_id: '810629146861490832'
+lifecycle_stage: active
+run_id: 04d6f4323112419a9ceab169bfa7c648
+run_name: languid-doe-895
+run_uuid: 04d6f4323112419a9ceab169bfa7c648
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713721442826
+status: 3
+tags: []
+user_id: nirmal

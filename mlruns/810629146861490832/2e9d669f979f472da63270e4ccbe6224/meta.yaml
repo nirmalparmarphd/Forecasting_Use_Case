@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/nirmal/Documents/np_dsci_codes/Forecasting_Use_Case/mlruns/810629146861490832/2e9d669f979f472da63270e4ccbe6224/artifacts
+end_time: 1713721483914
+entry_point_name: ''
+experiment_id: '810629146861490832'
+lifecycle_stage: active
+run_id: 2e9d669f979f472da63270e4ccbe6224
+run_name: secretive-eel-601
+run_uuid: 2e9d669f979f472da63270e4ccbe6224
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713721474398
+status: 3
+tags: []
+user_id: nirmal

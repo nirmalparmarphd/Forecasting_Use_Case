@@ -1,0 +1,2 @@
+mlflow==2.8.1
+statsforecast==1.7.4

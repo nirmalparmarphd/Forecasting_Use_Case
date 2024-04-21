@@ -1,0 +1,18 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflavors.statsforecast
+    model_path: model.pkl
+    python_version: 3.11.2
+  statsforecast:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: pickle
+    statsforecast_version: 1.7.4
+mlflow_version: 2.8.1
+model_uuid: b95eb57948b04e9e99fbde0e7467ba7d
+run_id: 04d6f4323112419a9ceab169bfa7c648
+utc_time_created: '2024-04-21 17:44:32.572552'

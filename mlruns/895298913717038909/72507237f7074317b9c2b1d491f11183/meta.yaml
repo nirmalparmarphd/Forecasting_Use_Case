@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/nirmal/Documents/np_dsci_codes/Forecasting_Use_Case/mlruns/895298913717038909/72507237f7074317b9c2b1d491f11183/artifacts
+end_time: 1715448347921
+entry_point_name: ''
+experiment_id: '895298913717038909'
+lifecycle_stage: active
+run_id: 72507237f7074317b9c2b1d491f11183
+run_name: angry-lark-698
+run_uuid: 72507237f7074317b9c2b1d491f11183
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1715448339369
+status: 3
+tags: []
+user_id: nirmal

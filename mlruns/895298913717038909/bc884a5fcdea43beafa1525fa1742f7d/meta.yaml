@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/nirmal/Documents/np_dsci_codes/Forecasting_Use_Case/mlruns/895298913717038909/bc884a5fcdea43beafa1525fa1742f7d/artifacts
+end_time: 1715448338361
+entry_point_name: ''
+experiment_id: '895298913717038909'
+lifecycle_stage: active
+run_id: bc884a5fcdea43beafa1525fa1742f7d
+run_name: big-chimp-937
+run_uuid: bc884a5fcdea43beafa1525fa1742f7d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1715448309295
+status: 3
+tags: []
+user_id: nirmal

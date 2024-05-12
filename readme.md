@@ -14,6 +14,8 @@ Choose one of the following questions to implement and share the code and explai
     1) Build a predictor to inform whether a payment occurs ahead of time, on time or if it's delayed.
        You consider that a payment is on time if it occurs during the same month of the due date.
 
+![1715520279164](image/readme/1715520279164.png)
+
     2) Build a 6-month forecast of the monthly sum of the variable VALUE_EUR for all HKONT values.
 
 ![1715508522705](image/readme/1715508522705.png)

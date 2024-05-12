@@ -16,18 +16,9 @@ from statsforecast.models import (
                                     AutoETS
                                 )
 
-statsforecast_base = StatsForecast
-from zenml.enums import ArtifactType
-model_AutoARIMA = AutoARIMA()
 from matplotlib.figure import Figure
 from zenml.client import Client
 client = Client()
-
-# class StatsForecast_Custom(BaseMaterializer):
-#     ASSOCIATED_TYPES = (AutoARIMA())
-#     ASSOCIATED_ARTIFACT_TYPE = ArtifactType.MODEL
-
-
 
 
 #1

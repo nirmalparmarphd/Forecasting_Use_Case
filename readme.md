@@ -16,4 +16,4 @@ Choose one of the following questions to implement and share the code and explai
 
     2) Build a 6-month forecast of the monthly sum of the variable VALUE_EUR for all HKONT values.
 
-![1715508392417](image/readme/1715508392417.png)
+![1715508522705](image/readme/1715508522705.png)

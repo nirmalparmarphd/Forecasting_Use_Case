@@ -19,6 +19,9 @@ from statsforecast.models import (
 statsforecast_base = StatsForecast
 from zenml.enums import ArtifactType
 model_AutoARIMA = AutoARIMA()
+from matplotlib.figure import Figure
+from zenml.client import Client
+client = Client()
 
 # class StatsForecast_Custom(BaseMaterializer):
 #     ASSOCIATED_TYPES = (AutoARIMA())
@@ -115,7 +118,7 @@ def forecasting_model(model_name:str)->Annotated[Union[AutoARIMA, SeasonalNaive]
 
 #9
 @step
-def forecasting_model_training_ARIMA(model:AutoARIMA, data:pd.DataFrame)->Annotated[np.float32, 'trained_model_AutoARIMA']:
+def forecasting_model_training_ARIMA(model:AutoARIMA, data:pd.DataFrame)->Annotated[float, 'trained_model_AutoARIMA']:
     
     # model = AutoARIMA(season_length=6, seasonal=True)
 
@@ -141,11 +144,12 @@ def forecasting_model_training_ARIMA(model:AutoARIMA, data:pd.DataFrame)->Annota
 
     # Evaluate model
     mape = mean_absolute_percentage_error(crossvalidation_df['y'], crossvalidation_df['AutoARIMA'])
-    return mape
+    print(f"autoarima mape {mape}")
+    return float(mape)
 
 #9
 @step
-def forecasting_model_training_SeasonalNaive(model:SeasonalNaive, data:pd.DataFrame)->Annotated[np.float32, 'trained_model_SeasonalNaive']:
+def forecasting_model_training_SeasonalNaive(model:SeasonalNaive, data:pd.DataFrame)->Annotated[float, 'trained_model_SeasonalNaive']:
     
     # model = AutoARIMA(season_length=6, seasonal=True)
 
@@ -171,13 +175,50 @@ def forecasting_model_training_SeasonalNaive(model:SeasonalNaive, data:pd.DataFr
 
     # Evaluate model
     mape = mean_absolute_percentage_error(crossvalidation_df['y'], crossvalidation_df['SeasonalNaive'])
-    return mape
+    return float(mape)
 
 @step
-def best_model(model_dict:dict)->Annotated[dict, 'Best Model: MAPE']:
-    min_rmse = min(model_dict.values())
-    min_rmse_models = {model: rmse for model, rmse in model_dict.items() if rmse == min_rmse}
-    return min_rmse_models
+def forecasting_model_training_SeasonalNaive_sf(model:SeasonalNaive, data:pd.DataFrame)->Annotated[StatsForecast, 'trained_model_SeasonalNaive_sf']:
+    
+    # model = AutoARIMA(season_length=6, seasonal=True)
+
+    #solver
+    sf = StatsForecast(df=data, 
+                    models=[model], 
+                    freq="M", 
+                    n_jobs=-1)
+    
+    #cv
+    crossvalidation_df = sf.cross_validation(df = data,
+                                            h = 6,
+                                            step_size = 1,
+                                            n_windows = 3)
+    crossvalidation_df.fillna(0, inplace=True)
+    
+    #model fit
+    sf.fit()
+    
+    return sf
+
+@step
+def forecasting_model_training_SeasonalNaive_sf_plot(sf:StatsForecast, data:pd.DataFrame)->Annotated[Figure, 'trained_model_SeasonalNaive_plot']:
+    
+    # model = AutoARIMA(season_length=6, seasonal=True)
+    # forecast
+    forecast_df = sf.forecast(df=data, h=6, level=[90])
+    #solver
+    plot = sf.plot(df=data, forecasts_df=forecast_df, level=[90])
+    
+    return plot.show()
+
+@step
+def best_model(model1:AutoARIMA, model2:SeasonalNaive, rmse1:float, rmse2:float)-> Annotated[Union[AutoARIMA, SeasonalNaive], 'Best model for Forecasting']:
+    if rmse1 > rmse2:
+        print(f'SeasonalNaive is the best model with MAPE: {rmse2}')
+        return model2
+    else:
+        print(f'AutoARIMA is the best model with MAPE: {rmse1}')
+        return model1
 
 
 
